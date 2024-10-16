@@ -1,7 +1,44 @@
-p{
-    color: black;
+:root {
+
 }
-h1, h2 {
-    font-family: Lato;
-  }
-  
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    padding: 10px;
+}
+
+.introduction {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 10px;
+}
+
+.introduction p {
+    float: left;
+}
+
+.introduction img {
+    float: right;
+}
+.assignment {
+    margin-top: 400px;
+    position: absolute;
+}
+body {
+    margin-top: 250px;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    text-align: center;
+}

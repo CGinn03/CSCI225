@@ -10,6 +10,15 @@
     padding: 10px;
 }
 
+.navbar ul{
+    display: flex;
+    gap: 20px;
+}
+
+.navbar > ul > li{
+    border-radius: 10px;
+}
+
 .introduction {
     position: fixed;
     top: 60px;
@@ -33,14 +42,27 @@
     position: absolute;
     top: 300px;
     left: 70%;
+    z-index: 10;
 }
 .portfolio {
     position: relative;
     top: 300px;
+    border-right: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+}
+
+.portfolio p:first-child{
+    box-shadow: 5px 5px 1px 1px;
+}
+
+.portfolio p{
+    display: inline-block;
 }
 .schedule {
     position: relative;
     top: 350px;
+    border-right: 3px solid #fff;
+    border-bottom: 3px solid #fff;
 }
 
 footer {
@@ -61,15 +83,30 @@ h1{
     font-weight: 100;
     letter-spacing: normal;
     line-height: 1em;
+    text-align: left;
     text-shadow: blue;
     color: chartreuse;
+    text-transform: uppercase;
 }
-link hover{
+link:hover{
     text-decoration: none;    
 }
-ul{
-    list-style-image: url(../img/leaf.png);
+ul {
+    list-style: none; 
 }
+
 body{
     background-image: url(../img/Forest.jpg);
+    background-size: cover;
+    background-repeat: repeat;
 }
+contact{
+    border-right: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+}
+p::first-letter{
+    color: black;
+    font-size: 20px;
+    font-style: italic;
+}
+

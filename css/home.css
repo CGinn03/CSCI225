@@ -50,6 +50,8 @@
     top: 300px;
     border-right: 3px solid #fff;
     border-bottom: 3px solid #fff;
+    color: pink;
+
 }
 
 .portfolio p:first-child {
@@ -60,12 +62,23 @@
     display: inline-block;
 }
 
+#portfolio {
+    margin: 0;
+    padding-top: 50px;
+}
+
+#assign {
+    margin: 0;
+    padding-top: 50px;
+}
+
 .schedule {
     position: relative;
-    top: 350px;
+    top: 230px;
     border-right: 3px solid #fff;
     border-bottom: 3px solid #fff;
-    padding: 5px;
+    padding: 7px;
+    padding-top: 10px;
     vertical-align: middle;
     empty-cells: hide;
 }

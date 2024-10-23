@@ -1,5 +1,4 @@
-:root {
-}
+:root {}
 
 .navbar {
     position: fixed;
@@ -10,12 +9,12 @@
     padding: 10px;
 }
 
-.navbar ul{
+.navbar ul {
     display: flex;
     gap: 20px;
 }
 
-.navbar > ul > li{
+.navbar>ul>li {
     border-radius: 10px;
 }
 
@@ -38,12 +37,14 @@
     width: 25%;
     float: right;
 }
-.assignment  {
+
+.assignment {
     position: absolute;
     top: 300px;
     left: 70%;
-    z-index: 10;
+    z-index: 1;
 }
+
 .portfolio {
     position: relative;
     top: 300px;
@@ -51,18 +52,22 @@
     border-bottom: 3px solid #fff;
 }
 
-.portfolio p:first-child{
+.portfolio p:first-child {
     box-shadow: 5px 5px 1px 1px;
 }
 
-.portfolio p{
+.portfolio p {
     display: inline-block;
 }
+
 .schedule {
     position: relative;
     top: 350px;
     border-right: 3px solid #fff;
     border-bottom: 3px solid #fff;
+    padding: 5px;
+    vertical-align: middle;
+    empty-cells: hide;
 }
 
 footer {
@@ -74,39 +79,49 @@ footer {
     text-align: center;
     background-color: purple;
 }
+
 @font-face {
     font-family: 'myfont';
     src: url(../fonts/chunkfive.eot);
 }
-h1{
+
+h1 {
     font-family: 'Dancing Script', sans-serif;
     font-weight: 100;
     letter-spacing: normal;
     line-height: 1em;
     text-align: left;
-    text-shadow: blue;
+    text-shadow: 2px 2px 5px rgba(16, 162, 158, 0.5);
     color: chartreuse;
     text-transform: uppercase;
 }
-link:hover{
-    text-decoration: none;    
-}
-ul {
-    list-style: none; 
+
+link:hover {
+    text-decoration: none;
 }
 
-body{
+ul {
+    list-style: none;
+}
+
+body {
     background-image: url(../img/Forest.jpg);
     background-size: cover;
     background-repeat: repeat;
+    overflow-y: scroll;
 }
-contact{
+
+contact {
     border-right: 3px solid #fff;
     border-bottom: 3px solid #fff;
 }
-p::first-letter{
+
+p::first-letter {
     color: black;
     font-size: 20px;
     font-style: italic;
 }
 
+table tr:nth-child(even) {
+    background-color: brown;
+}

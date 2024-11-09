@@ -1,12 +1,71 @@
 <!DOCTYPE html lang>
-<html>
 
 <head>
-
+    <title>Unit Conversion Calculator- Length</title>
 </head>
 
 <body>
+    <div>
+        <div id="Converter">
+            <h1>Unit Conversion Calculator - Length</h1>
+            <input type="number" id="inputValue" placeholder="Enter a value">
+            <select id="fromUnit">
+                <option value="inches">Inches</option>
+                <option value="feet">Feet</option>
+                <option value="yards">Yards</option>
+                <option value="miles">Miles</option>
+                <option value="mm">Millimeters</option>
+                <option value="cm">Centimeters</option>
+                <option value="meters">Meters</option>
+                <option value="km">Kilometers</option>
+            </select>
+            <label for="toUnit">to</label>
+        </div>
+        <div>
+            <input type="number" id="outputValue" placeholder="Answer..." readonly>
+            <select id="toUnit">
+                <option value="inches">Inches</option>
+                <option value="feet">Feet</option>
+                <option value="yards">Yards</option>
+                <option value="miles">Miles</option>
+                <option value="mm">Millimeters</option>
+                <option value="cm">Centimeters</option>
+                <option value="meters">Meters</option>
+                <option value="km">Kilometers</option>
+            </select>
+            <button onclick="convert()">Convert</button>
+        </div>
+    </div>
+    <script>
+        function convert() {
+            const inputValue = parseFloat(document.getElementById('inputValue').value);
+            const fromUnit = document.getElementById('fromUnit').value;
+            const toUnit = document.getElementById('toUnit').value;
 
+            if (isNaN(inputValue)) {
+                document.getElementById('result').innerText = "Please enter a valid number.";
+                return;
+            }
+
+            // Conversion logic (example: converting everything to meters first)
+            const conversionRates = {
+                inches: 0.0254,
+                feet: 0.3048,
+                yards: 0.9144,
+                miles: 1609.34,
+                mm: 0.001,
+                cm: 0.01,
+                meters: 1,
+                km: 1000,
+            };
+
+            const valueInMeters = inputValue * conversionRates[fromUnit];
+            const convertedValue = valueInMeters / conversionRates[toUnit];
+
+            document.getElementById('outputValue').value = convertedValue;
+        }
+    </script>
+    </div>
 </body>
 
 </html>

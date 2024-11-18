@@ -6,6 +6,7 @@
 </head>
 
 <div class="Image Slideshow">
+    <button class="arrow left-arrow">&lt;</button>
     <div class="img-container-hide">
         <img src="img/Hockey.jpg" alt="Hockey" />
     </div>
@@ -21,6 +22,81 @@
     <div class="img-container-hide">
         <img src="img/Widowmaker.jpg" alt="Widowmaker">
     </div>
+    <button class="arrow right-arrow">&gt;</button>
+</div>
+    <style>
+        .Slideshow{
+            position: relative;
+            width: 300px; /* Adjust width to your image size */
+            height: 200px; /* Adjust height to your image size */
+            margin: auto;
+            overflow: hidden;
+        }
+        .img-container{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .arrow{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            color: white;
+            border: none;
+            font-size: 24px;
+            padding: 10px 15px;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .img-container-hide{
+            display: inline-block;
+        }
+        img{
+            width:200px;
+            aspect-ratio: 1.3;
+            object-fit: cover;
+        }
 
+        .left-arrow {
+  left: 10px; /* Position on the left side of the image */
+}
+
+.right-arrow {
+  right: 10px; /* Position on the right side of the image */
+}
+
+/* Optional: Add hover effect for buttons */
+.arrow:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+    </style>
+
+    <script>
+        const imgWrapper = document.querySelector('.image-wrapper');
+        const images = document.querySelectorAll('.img-container');
+        let index = 0; // Current image index
+
+        // Function to change the picture
+        function changepic(direction) {
+        if (direction === 'right') {
+            index = (index + 1) % images.length; // Move to the next image, looping back to the first
+        } else if (direction === 'left') {
+            index = (index - 1 + images.length) % images.length; // Move to the previous image, looping back to the last
+        }
+
+        // Update the transform property to slide images
+        imgWrapper.style.transform = `translateX(-${index * 100}%)`;
+        }
+
+        // Bind the events
+        document.querySelector('.right-arrow').addEventListener('click', function () {
+        changepic('right');
+        });
+
+        document.querySelector('.left-arrow').addEventListener('click', function () {
+        changepic('left');
+        });
+    </script>
 
 </html>

@@ -4,33 +4,41 @@
 <head>
     <title>My Image Gallery</title>
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            height: 100vh; 
+        }
+    
         .ImageSlideshow {
             position: relative;
-            width: 300px;
-            height: 200px;
-            margin: auto;
+            width: 80%; 
+            max-width: 800px; 
+            height: 90%; 
             overflow: hidden;
+            background-color: #000; 
         }
-
-        .img-wrapper {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
+    
+        .img-container-hide {
             width: 100%;
             height: 100%;
+            display: none;
+            text-align: center;
         }
-
-        .img-container {
-            flex: 0 0 100%;
-            width: 100%;
-            height: 100%;
-        }
-
-        img {
-            width: 100%;
-            height: 100%;
+    
+        .img-container-hide img {
+            width: 100%; 
+            height: 100%; 
             object-fit: cover;
         }
-
+    
+        .img-container-hide.active {
+            display: block;
+        }
+    
         .arrow {
             position: absolute;
             top: 50%;
@@ -38,62 +46,61 @@
             background-color: rgba(0, 0, 0, 0.5);
             color: white;
             border: none;
-            font-size: 24px;
-            padding: 10px 15px;
+            font-size: 20px;
+            padding: 10px;
             cursor: pointer;
-            z-index: 10;
+            z-index: 1;
         }
-
+    
         .left-arrow {
             left: 10px;
         }
-
+    
         .right-arrow {
             right: 10px;
         }
-
+    
         .arrow:hover {
             background-color: rgba(0, 0, 0, 0.7);
         }
     </style>
-</head>
+    </head>
 
 <body>
-    <div class="Image Slideshow">
+    <div class="ImageSlideshow">
         <button class="arrow left-arrow">&lt;</button>
-        <div class="img-wrapper">
-            <div class="img-container">
-                <img src="img/Hockey.jpg" alt="Hockey" />
-            </div>
-            <div class="img-container">
-                <img src="img/Lasagna.jpg" alt="Lasagna" />
-            </div>
-            <div class="img-container">
-                <img src="img/MJKB.jpg" alt="MJKB" />
-            </div>
-            <div class="img-container">
-                <img src="img/Penguin.jpg" alt="Penguin">
-            </div>
-            <div class="img-container">
-                <img src="img/Widowmaker.jpg" alt="Widowmaker">
-            </div>
+        <div class="img-container-hide active">
+            <img src="img/Hockey.jpg" alt="Hockey" />
+        </div>
+        <div class="img-container-hide">
+            <img src="img/Lasagna.jpg" alt="Lasagna" />
+        </div>
+        <div class="img-container-hide">
+            <img src="img/MJKB.jpg" alt="MJKB" />
+        </div>
+        <div class="img-container-hide">
+            <img src="img/Penguin.jpg" alt="Penguin">
+        </div>
+        <div class="img-container-hide">
+            <img src="img/Widowmaker.jpg" alt="Widowmaker">
         </div>
         <button class="arrow right-arrow">&gt;</button>
     </div>
 
     <script>
-        const imgWrapper = document.querySelector('.img-wrapper');
-        const images = document.querySelectorAll('.img-container');
-        let index = 0;
+        const images = document.querySelectorAll('.img-container-hide');
+        let index = 0; 
 
         function changepic(direction) {
+            images[index].classList.remove('active');
+
             if (direction === 'right') {
                 index = (index + 1) % images.length;
             } else if (direction === 'left') {
-                index = (index - 1 + images.length) % images.length;
+                index = (index - 1 + images.length) % images.length; 
             }
 
-            imgWrapper.style.transform = `translateX(-${index * 100}%)`;
+            images[index].classList.add('active');
         }
 
         document.querySelector('.right-arrow').addEventListener('click', function () {
